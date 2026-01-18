@@ -732,7 +732,7 @@ function reset() {
 
 /* ---------------- Load song ---------------- */
 
-async function loadSong(url = "songs/jimmy.md") {
+async function loadSong(url = "jimmy.md") {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
   const text = await res.text();
@@ -784,7 +784,7 @@ async function loadSong(url = "songs/jimmy.md") {
 
 btnLoad.addEventListener("click", async () => {
   try {
-    await loadSong("songs/jimmy.md");
+    await loadSong("jimmy.md");
   } catch (e) {
     console.error(e);
     panel.innerHTML = "";
@@ -815,4 +815,4 @@ btnTempoMinus.disabled = true;
 btnTempoPlus.disabled = true;
 
 // auto load attempt (optional)
-loadSong("songs/jimmy.md").catch(() => {});
+loadSong("jimmy.md").catch(() => {});
