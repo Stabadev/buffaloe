@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Song Scroller</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Topbar (visible uniquement hors lecture) -->
+  <header class="topbar">
+    <div class="title">
+      <div class="h1">Song Scroller</div>
+      <div class="sub" id="metaLine">—</div>
+    </div>
+
+    <div class="controls">
+      <button id="btnLoad">Load</button>
+      <button id="btnStart">Start</button>
+      <button id="btnPause" disabled>Pause</button>
+      <button id="btnReset">Reset</button>
+
+      <div class="sep"></div>
+
+      <button id="btnTempoMinus" title="Ralentir" disabled>Tempo −</button>
+      <button id="btnTempoPlus" title="Accélérer" disabled>Tempo +</button>
+
+      <div class="pill">
+        Step: <span id="tempoStepVal">2</span> BPM
+      </div>
+
+      <div class="pill">
+        BPM: <span id="bpmVal">—</span>
+      </div>
+
+      <div class="metro" aria-label="Métronome visuel">
+        <div class="dots" id="metroDots">
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+          <span class="dot" data-dot="3"></span>
+          <span class="dot" data-dot="4"></span>
+        </div>
+      </div>
+
+      <div class="pill pill-beat">
+        Beat: <span id="beatVal">0.00</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mini HUD live (pendant lecture) -->
+  <div class="hud" id="hud" aria-label="HUD Live">
+    <div class="hudLeft">
+      <div class="hudMetro" aria-label="Métronome">
+        <div class="dots big" id="hudMetroDots">
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+          <span class="dot" data-dot="3"></span>
+          <span class="dot" data-dot="4"></span>
+        </div>
+      </div>
+      <div class="hudInfo">
+        <div class="hudBpm"><span class="k">BPM</span> <span class="v" id="hudBpmVal">—</span></div>
+        <div class="hudCount" id="hudCountIn"></div>
+      </div>
+    </div>
+
+    <div class="hudActions">
+      <button id="hudPause">Pause</button>
+      <button id="hudReset">Reset</button>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="panel" id="songPanel">
+      <div class="empty" id="emptyState">Clique “Load” pour charger songs/jimmy.md</div>
+    </div>
+  </main>
+
+  
+
+  <div id="nowChordBadge" class="nowChordBadge" aria-label="Accord actuel">—</div>
+  <script src="./app.js"></script>
+</body>
+</html>
